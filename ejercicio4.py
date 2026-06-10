@@ -10,4 +10,11 @@ for x  in range(5):
 
     numeros.append(num)
 
-        
+suma_total=sum(numeros)
+cantidad_num=len(numeros)
+promedio=suma_total/cantidad_num
+
+print(f"---Resultados---")
+print(f"La lista completa es: {numeros}")
+print(f"La suma total es: {suma_total}")
+print(f"El promedio es: {promedio}")        
