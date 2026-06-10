@@ -22,7 +22,7 @@ while True:
         for producto, stock in inventario.items():
             print(f"- {producto}: {stock} unidades.")
         input("Presione para volver al menú...")    
-    if opc == 2:
+    elif opc == 2:
         print("--- NUEVA VENTA ---")
         productoa_vender = input("Ingrese el nombre del producto: ").strip().title()
         if productoa_vender not in inventario:
@@ -39,4 +39,17 @@ while True:
             except ValueError:
                 print("ERROR!! debe ingresar un número entero válido.")  
         stock_actual= inventario[productoa_vender]
-        
+        if Cantidad_venta > stock_actual:
+            print(f"ERROR!! stock insuficiente. solo quedan {stock_actual} unidades.")
+            time.sleep(1.5)
+        else:
+            inventario[productoa_vender] = stock_actual - Cantidad_venta
+            print("Venta realizada con éxito!!")
+            print(f"Stock actualizado = {productoa_vender}: {inventario[productoa_vender]}")
+            time.sleep(1.4)
+    elif opc == 3:
+        print("Cerrando sistema...Gracias por utilizar el sistema de inventario, hasta luegoo!!")
+        break
+    else:
+        print("ERROR!! debe ingresar una opcion vlida del 1 al 3")
+        time.sleep(1.3)
