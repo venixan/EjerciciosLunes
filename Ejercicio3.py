@@ -23,4 +23,20 @@ while True:
             print(f"- {producto}: {stock} unidades.")
         input("Presione para volver al menú...")    
     if opc == 2:
-        print("")    
+        print("--- NUEVA VENTA ---")
+        productoa_vender = input("Ingrese el nombre del producto: ").strip().title()
+        if productoa_vender not in inventario:
+            print("ERROR!! el producto que usted selecciono no esta en el inventario.")
+            time.sleep(1.8)
+            continue
+        while True:
+            try:
+                Cantidad_venta=int(input(f"¿cuantas unidades de {producto} desea llevar?: "))
+                if Cantidad_venta>0:
+                    break
+                else:
+                    print("Error!! la cantidad debe ser mayor a 0!!")
+            except ValueError:
+                print("ERROR!! debe ingresar un número entero válido.")  
+        stock_actual= inventario[productoa_vender]
+        
